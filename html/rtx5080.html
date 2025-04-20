@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/home.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .sp {
+        margin: 100px 0px;
+      }
+      .nvidia-rtx {
+        display: grid;
+        grid-template-columns: 580px auto;
+      }
+      .nvidia-rtx video {
+        margin-left: 70px;
+        border-radius: 20px;
+        height: auto;
+      }
+      .nvidia-rtx-1-1 {
+        display: grid;
+        grid-template-rows: 40px 190px 50px;
+        align-items: end;
+      }
+      .nvidia-rtx-1-1 .cart-bt {
+        display: flex;
+        margin-right: 50px;
+        align-items: center;
+      }
+      .nvidia-rtx-1-1 .cart {
+        padding: 10px 55px;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        color: white;
+        background-color: red;
+        transition: all 0.5s;
+      }
+      .nvidia-rtx-1-1 .cart:hover {
+        background-color: rgb(210, 0, 0);
+      }
+      .counter {
+        display: flex;
+        gap: 5px;
+        align-items: end;
+        max-width: 150px;
+      }
+      .counter-btn {
+        width: 40px;
+        height: 30px;
+        border: none;
+        outline: none;
+        background-color: red;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+      .counter-btn:hover {
+        background-color: rgb(210, 0, 0);
+      }
+      .counter-display {
+        width: 60px;
+        height: 30px;
+        text-align: center;
+        font-size: 15px;
+        color: white;
+        background-color: rgb(0, 0, 0);
+        border-radius: 10px;
+        outline: none;
+      }
+      .nvidia-rtx-2 {
+        display: flex;
+        justify-content: center;
+        margin-top: 100px;
+      }
+      .spec-table {
+        width: 100%;
+        max-width: auto;
+        margin: 20px 70px 0 70px;
+        color: white;
+        background-color: rgb(37, 37, 37);
+        border-radius: 10px;
+      }
+      .spec-table td {
+        padding: 15px;
+        font-size: 18px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .spec-table td:first-child {
+        font-weight: 600;
+        background-color: rgba(255, 255, 255, 0.05);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <div class="menu">
+        <button class="list-menu1"><i class="bx bx-menu"></i></button>
+        <div class="box-menu">
+          <div class="box-menu-head">
+            <button class="list-menu2"><i class="bx bx-menu"></i></button>
+            <h1>Diminal</h1>
+          </div>
+          <div class="box-menu-list">
+            <ul class="box-list1">
+              <li class="menu-bt5">
+                <i class="bx bx-home"></i><span>trang chủ</span>
+              </li>
+              <li class="menu-bt1">
+                <i class="bx bx-user"></i> <span>thông tin</span>
+              </li>
+              <li class="menu-bt2">
+                <i class="bx bx-cart-alt"></i><span>giỏ hàng</span>
+              </li>
+              <li class="menu-bt3">
+                <i class="bx bx-log-in"></i><span>đăng nhập</span>
+              </li>
+              <li class="menu-bt4">
+                <i class="bx bx-log-out"></i><span>đăng xuất</span>
+              </li>
+            </ul>
+            <ul class="box-list2">
+              <li class="menu-bt6">
+                <i class="bx bx-cog"></i><span>cài đặt</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <img src="/img/snapedit_1745079844229png" alt="" />
+      <h1>Diminal</h1>
+    </div>
+
+    <div class="sp">
+      <div class="nvidia">
+        <div class="nvidia-rtx">
+          <video
+            autoplay
+            muted
+            id="myVideo"
+            src="/video/2025-03-31 20-31-13 (online-video-cutter.com) (1).mp4"
+            width="500"
+            height="300"
+            controls
+          ></video>
+          <div class="nvidia-rtx-1-1">
+            <div class="title">
+              <h1>ROG Astral GeForce RTX™ 5080 16GB GDDR7</h1>
+            </div>
+            <div class="counter">
+              <button class="counter-btn decrease">-</button>
+              <input type="text" class="counter-display" value="1" readonly />
+              <button class="counter-btn increase">+</button>
+            </div>
+            <div class="cart-bt">
+              <button class="cart">Đặt hàng</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nvidia">
+        <div class="nvidia-rtx-2">
+          <table class="spec-table">
+            <tr>
+              <td>Bộ xử lý đồ họa</td>
+              <td>NVIDIA® GeForce RTX™ 5080</td>
+            </tr>
+            <tr>
+              <td>Kiến trúc</td>
+              <td>Blackwell</td>
+            </tr>
+            <tr>
+              <td>Bộ nhớ</td>
+              <td>16GB GDDR7</td>
+            </tr>
+            <tr>
+              <td>Tốc độ bộ nhớ</td>
+              <td>Lên đến 30 Gbps</td>
+            </tr>
+            <tr>
+              <td>Nhân Ray Tracing</td>
+              <td>Thế hệ thứ 4</td>
+            </tr>
+            <tr>
+              <td>Nhân Tensor</td>
+              <td>Thế hệ thứ 5</td>
+            </tr>
+            <tr>
+              <td>Xung nhịp tăng tốc</td>
+              <td>Lên đến 2.79 GHz (OC Edition)</td>
+            </tr>
+            <tr>
+              <td>Công suất tiêu thụ</td>
+              <td>360W</td>
+            </tr>
+            <tr>
+              <td>Cổng kết nối hiển thị</td>
+              <td>3x DisplayPort 2.1b, 1x HDMI 2.1</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot">
+      <img
+        src="/img/snapedit_1745117915868.png"
+        alt=""
+        class="background-footer"
+      />
+      <footer>
+        <div class="footer-content-1">
+          <div class="footer-content-1-1">
+            <img src="/img/snapedit_1745079844229png" alt="" />
+            <span>Diminal</span>
+            <div class="contact-icon">
+              <div class="icon-facebook">
+                <a href="https://www.facebook.com/share/15zaQBAyTG/"
+                  ><i class="bx bxl-meta"></i
+                ></a>
+              </div>
+              <div class="icon-youtube">
+                <a href="https://youtube.com/@liem_chua?si=sj6AFTx_89XJdygY"
+                  ><i class="bx bxl-youtube"></i
+                ></a>
+              </div>
+              <div class="icon-gmail">
+                <a href="mailto:pdlp0811@gmail.com"
+                  ><i class="bx bxl-gmail"></i
+                ></a>
+              </div>
+              <div class="icon-tiktok">
+                <a href=""><i class="bx bxl-tiktok"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="footer-content-1-2">
+            <span>nhập email của bạn để nhận các ưu đãi mới nhất </span>
+            <div class="notification">
+              <input
+                type="text"
+                name=""
+                id="free"
+                placeholder="nhập địa chỉ email"
+              />
+              <button><span>Đăng kí</span></button>
+            </div>
+          </div>
+          <div class="custom-border"></div>
+        </div>
+        <div class="footer-content-2">
+          <div class="footer-content-2-2">
+            <p>
+              Công ty TNHH công nghệ Diminal<br />Địa chỉ : Thôn Đại Dồng, xá
+              Cương Gián, huyện Nghi Xuân, tỉnh Hà tĩnh <br />
+              Điện thoại : 0399562763 <br />
+              Email : Pdlp0811@gmail.com <br />
+              Giấy phép kinh doanh hoạt động mua bán hàng hóa và các hoạt động
+              liên quan trực tiếp đến mua bán hàng hóa, số 0304965680/KD-0321,
+              do Sở Công thương TP. Hồ Chí Minh cấp lần đầu ngày 24/01/2019.
+            </p>
+            <img
+              src="https://rog.asus.com/_nuxt/img/vn-logo-footer.9837dce.png"
+              alt=""
+              id="access"
+            />
+          </div>
+          <div class="footer-content-3">
+            <div class="footer-content-3-1">
+              <i class="bx bx-globe"></i><span>Vietnam/Việt Nam</span>
+            </div>
+            <div class="footer-content-3-2">
+              <button class="law-1">Quy chế pháp lý</button>
+              <button class="law-2">Thông tin hợp pháp</button>
+              <span>©DIMINALTeK Computer Inc. All rights reserved.</span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script>
+      const menu1 = document.querySelector(".list-menu1");
+      const box_menu = document.querySelector(".box-menu");
+      const menu2 = document.querySelector(".list-menu2");
+      menu1.addEventListener("click", function (event) {
+        event.preventDefault();
+        console.log("click");
+        box_menu.classList.add("selecter");
+      });
+      menu2.addEventListener("click", function (event) {
+        event.preventDefault();
+        console.log("click");
+        box_menu.classList.remove("selecter");
+      });
+
+      const register_login = document.querySelector(".menu-bt3");
+      register_login.addEventListener("click", function (event) {
+        event.preventDefault();
+        console.log("click");
+        window.location.href = "/html/index.html";
+      });
+
+      const cart = document.querySelector(".menu-bt2");
+      cart.addEventListener("click", function (event) {
+        event.preventDefault();
+        console.log("click");
+        window.location.href = "/html/cart.html";
+      });
+
+      const home = document.querySelector(".menu-bt5");
+      home.addEventListener("click", function (event) {
+        event.preventDefault();
+        console.log("click");
+        window.location.href = "/html/home.html";
+      });
+
+      const profile = document.querySelector(".menu-bt1");
+      profile.addEventListener("click", function (event) {
+        event.preventDefault();
+        console.log("click");
+        window.location.href = "/html/profile.html";
+      });
+
+      const decreaseBtn = document.querySelector(".counter-btn.decrease");
+      const increaseBtn = document.querySelector(".counter-btn.increase");
+      const counterDisplay = document.querySelector(".counter-display");
+      const cartBtn = document.querySelector(".cart");
+
+      let count = 1;
+
+      decreaseBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        if (count > 1) {
+          count--;
+          counterDisplay.value = count;
+        }
+      });
+
+      increaseBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        count++;
+        counterDisplay.value = count;
+      });
+
+      //////
+      cartBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        const productName = document.querySelector(
+          ".nvidia-rtx-1-1 .title h1"
+        ).innerText;
+        const quantity = parseInt(counterDisplay.value);
+
+        // Lấy giỏ hàng từ localStorage hoặc tạo mới nếu chưa có
+        let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+        // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
+        const existingItemIndex = cartItems.findIndex(
+          (item) => item.name === productName
+        );
+        if (existingItemIndex >= 0) {
+          // Nếu đã có, cập nhật số lượng
+          cartItems[existingItemIndex].quantity += quantity;
+        } else {
+          // Nếu chưa có, thêm sản phẩm mới
+          cartItems.push({ name: productName, quantity: quantity });
+        }
+
+        // Lưu giỏ hàng vào localStorage
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+        // Chuyển hướng đến trang giỏ hàng
+        window.location.href = "/html/cart.html";
+      });
+    </script>
+  </body>
+</html>

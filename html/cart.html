@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giỏ Hàng</title>
+    <link rel="stylesheet" href="/css/home.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .cart-container {
+        margin: 100px 20px;
+        color: white;
+      }
+      .cart-container h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+        background-image: linear-gradient(to right, #99faff, #ff5566);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .cart-list {
+        background-color: rgb(37, 37, 37);
+        border-radius: 10px;
+        padding: 20px;
+      }
+      .cart-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .cart-item:last-child {
+        border-bottom: none;
+      }
+      .cart-item span {
+        font-size: 18px;
+      }
+      .cart-item .quantity {
+        font-weight: 600;
+      }
+      .empty-cart {
+        font-size: 18px;
+        text-align: center;
+        padding: 20px;
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .clear-cart {
+        margin-top: 20px;
+        padding: 10px 20px;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        color: white;
+        background-color: red;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+      .clear-cart:hover {
+        background-color: rgb(210, 0, 0);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <div class="menu">
+        <button class="list-menu1"><i class="bx bx-menu"></i></button>
+        <div class="box-menu">
+          <div class="box-menu-head">
+            <button class="list-menu2"><i class="bx bx-menu"></i></button>
+            <h1>Diminal</h1>
+          </div>
+          <div class="box-menu-list">
+            <ul class="box-list1">
+              <li class="menu-bt5">
+                <i class="bx bx-home"></i><span>trang chủ</span>
+              </li>
+              <li class="menu-bt1">
+                <i class="bx bx-user"></i> <span>thông tin</span>
+              </li>
+              <li class="menu-bt2">
+                <i class="bx bx-cart-alt"></i><span>giỏ hàng</span>
+              </li>
+              <li class="menu-bt3">
+                <i class="bx bx-log-in"></i><span>đăng nhập</span>
+              </li>
+              <li class="menu-bt4">
+                <i class="bx bx-log-out"></i><span>đăng xuất</span>
+              </li>
+            </ul>
+            <ul class="box-list2">
+              <li class="menu-bt6">
+                <i class="bx bx-cog"></i><span>cài đặt</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <img src="/img/snapedit_1745079844229png" alt="" />
+      <h1>Diminal</h1>
+    </div>
+
+    <div class="cart-container">
+      <h2>Giỏ Hàng</h2>
+      <div class="cart-list" id="cartList"></div>
+      <button class="clear-cart" onclick="clearCart()">Xóa Giỏ Hàng</button>
+    </div>
+
+    <div class="foot">
+      <img
+        src="/img/snapedit_1745117915868.png"
+        alt=""
+        class="background-footer"
+      />
+      <footer>
+        <div class="footer-content-1">
+          <div class="footer-content-1-1">
+            <img src="/img/snapedit_1745079844229png" alt="" />
+            <span>Diminal</span>
+            <div class="contact-icon">
+              <div class="icon-facebook">
+                <a href="https://www.facebook.com/share/15zaQBAyTG/"
+                  ><i class="bx bxl-meta"></i
+                ></a>
+              </div>
+              <div class="icon-youtube">
+                <a href="https://youtube.com/@liem_chua?si=sj6AFTx_89XJdygY"
+                  ><i class="bx bxl-youtube"></i
+                ></a>
+              </div>
+              <div class="icon-gmail">
+                <a href="mailto:pdlp0811@gmail.com"
+                  ><i class="bx bxl-gmail"></i
+                ></a>
+              </div>
+              <div class="icon-tiktok">
+                <a href=""><i class="bx bxl-tiktok"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="footer-content-1-2">
+            <span>nhập email của bạn để nhận các ưu đãi mới nhất </span>
+            <div class="notification">
+              <input
+                type="text"
+                name=""
+                id="free"
+                placeholder="nhập địa chỉ email"
+              />
+              <button><span>Đăng kí</span></button>
+            </div>
+          </div>
+          <div class="custom-border"></div>
+        </div>
+        <div class="footer-content-2">
+          <div class="footer-content-2-2">
+            <p>
+              Công ty TNHH công nghệ Diminal<br />Địa chỉ : Thôn Đại Dồng, xá
+              Cương Gián, huyện Nghi Xuân, tỉnh Hà tĩnh <br />
+              Điện thoại : 0399562763 <br />
+              Email : Pdlp0811@gmail.com <br />
+              Giấy phép kinh doanh hoạt động mua bán hàng hóa và các hoạt động
+              liên quan trực tiếp đến mua bán hàng hóa, số 0304965680/KD-0321,
+              do Sở Công thương TP. Hồ Chí Minh cấp lần đầu ngày 24/01/2019.
+            </p>
+            <img
+              src="https://rog.asus.com/_nuxt/img/vn-logo-footer.9837dce.png"
+              alt=""
+              id="access"
+            />
+          </div>
+          <div class="footer-content-3">
+            <div class="footer-content-3-1">
+              <i class="bx bx-globe"></i><span>Vietnam/Việt Nam</span>
+            </div>
+            <div class="footer-content-3-2">
+              <button class="law-1">Quy chế pháp lý</button>
+              <button class="law-2">Thông tin hợp pháp</button>
+              <span>©DIMINALTeK Computer Inc. All rights reserved.</span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script>
+      const menu1 = document.querySelector(".list-menu1");
+      const box_menu = document.querySelector(".box-menu");
+      const menu2 = document.querySelector(".list-menu2");
+      menu1.addEventListener("click", function (event) {
+        event.preventDefault();
+        console.log("click");
+        box_menu.classList.add("selecter");
+      });
+      menu2.addEventListener("click", function (event) {
+        event.preventDefault();
+        console.log("click");
+        box_menu.classList.remove("selecter");
+      });
+
+      const register_login = document.querySelector(".menu-bt3");
+      register_login.addEventListener("click", function (event) {
+        event.preventDefault();
+        console.log("click");
+        window.location.href = "/html/index.html";
+      });
+
+      const cart = document.querySelector(".menu-bt2");
+      cart.addEventListener("click", function (event) {
+        event.preventDefault();
+        console.log("click");
+        window.location.href = "/html/cart.html";
+      });
+
+      const home = document.querySelector(".menu-bt5");
+      home.addEventListener("click", function (event) {
+        event.preventDefault();
+        console.log("click");
+        window.location.href = "/html/home.html";
+      });
+
+      const profile = document.querySelector(".menu-bt1");
+      profile.addEventListener("click", function (event) {
+        event.preventDefault();
+        console.log("click");
+        window.location.href = "/html/profile.html";
+      });
+
+      // Hiển thị giỏ hàng
+      function displayCart() {
+        const cartList = document.getElementById("cartList");
+        const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+        if (cartItems.length === 0) {
+          cartList.innerHTML = '<div class="empty-cart">Giỏ hàng trống</div>';
+          return;
+        }
+
+        cartList.innerHTML = "";
+        cartItems.forEach((item) => {
+          const cartItem = document.createElement("div");
+          cartItem.className = "cart-item";
+          cartItem.innerHTML = `
+            <span>${item.name}</span>
+            <span class="quantity">Số lượng: ${item.quantity}</span>
+          `;
+          cartList.appendChild(cartItem);
+        });
+      }
+
+      // Xóa giỏ hàng
+      function clearCart() {
+        localStorage.removeItem("cartItems");
+        displayCart();
+      }
+
+      // Gọi hàm hiển thị giỏ hàng khi trang tải
+      document.addEventListener("DOMContentLoaded", displayCart);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Smooch+Sans:wght@100..900&display=swap");
+      * {
+        font-family: "Barlow Condensed", sans-serif;
+
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: rgb(255, 255, 255);
+      }
+      button {
+        cursor: pointer;
+      }
+      #header {
+        background-color: rgb(0, 0, 0);
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        border-radius: 10px;
+        padding: 10px 0px;
+        z-index: 11;
+      }
+      #header img {
+        height: 30px;
+        margin: 10px 0px 0px 20px;
+      }
+      #header h1 {
+        background-image: linear-gradient(to right, #99faff, #ff5566);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+        margin-left: 5px;
+        font-size: 40px;
+      }
+      .menu {
+        display: flex;
+        align-items: center;
+      }
+
+      .menu i {
+        color: rgb(255, 255, 255);
+        font-size: 35px;
+        margin-left: 20px;
+      }
+
+      /* BOX */
+      .box-menu {
+        position: absolute;
+        top: 0px;
+        background-color: rgb(37, 37, 37);
+        width: 250px;
+        height: 100vh;
+        position: fixed;
+        transform: translate(-100%, 0%);
+        transition: all 0.5s;
+      }
+      .selecter {
+        transform: translate(0%, 0%);
+        box-shadow: 0px 0px 100px black;
+      }
+      [class^="list-"] {
+        background-color: rgba(240, 248, 255, 0);
+        border: none;
+        outline: none;
+      }
+
+      .box-menu-head {
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+        padding-top: 10px;
+      }
+
+      .box-menu-head i {
+        color: rgb(255, 255, 255);
+        font-size: 35px;
+        margin-left: 20px;
+      }
+
+      .box-menu-list {
+        display: grid;
+        position: fixed;
+        grid-template-rows: auto 1fr auto;
+        grid-template-columns: 250px;
+        justify-content: center;
+      }
+      [class^="box-"] li {
+        display: flex;
+        justify-content: center;
+      }
+      .box-menu-list {
+        display: grid;
+        height: 90%;
+      }
+
+      .box-list2 {
+        border-top: 1px solid rgb(255, 255, 255);
+        margin-top: auto;
+      }
+
+      .box-menu-list li {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        font-size: 18px;
+        padding: 10px;
+        color: white;
+      }
+
+      .box-menu-list i {
+        font-size: 24px;
+      }
+
+      .box-menu-list [class^="box-"] {
+        display: grid;
+        grid-gap: 20px;
+      }
+      .box-menu-list li {
+        list-style: none;
+        margin-left: -40px;
+        display: flex;
+        align-items: center;
+        grid-gap: 20px;
+      }
+
+      .box-menu-list li span {
+        color: rgb(255, 255, 255);
+        font-size: 30px;
+      }
+
+      .profile {
+        margin: 170px 0px 160px 0px;
+        display: grid;
+        justify-content: center;
+      }
+      [class^="bx-"] {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 250px;
+        border-bottom: 2px solid black;
+        font-size: 30px;
+      }
+      .main-profile {
+        display: grid;
+        padding: 20px;
+        grid-gap: 30px;
+      }
+
+      [class^="icon-"] {
+        border: none;
+        outline: none;
+        background-color: rgba(83, 140, 255, 0.386);
+        border-radius: 20px;
+        height: 25px;
+        cursor: pointer;
+        transition: all 0.5s;
+      }
+      [class^="icon-"]:hover {
+        background-color: rgba(83, 140, 255, 0.699);
+      }
+      .icon-1 {
+        padding: 20px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .icon-2 {
+        display: none;
+      }
+      .icon2-1 {
+        display: block;
+        padding: 20px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .icon1-1 {
+        display: none;
+      }
+
+      .custom-btn {
+        display: inline-block;
+        padding: 8px 16px;
+        background: rgba(83, 140, 255, 0.386);
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+        color: black;
+      }
+
+      .custom-btn:hover {
+        background: rgba(83, 140, 255, 0.699);
+      }
+      .avatar {
+        display: flex;
+        justify-content: center;
+      }
+
+      [class^="menu-"] {
+        cursor: pointer;
+        background-color: none;
+        transition: all 0.5s;
+        margin-top: 10px;
+      }
+      [class^="menu-"]:hover {
+        background-color: rgba(255, 255, 255, 0.285);
+      }
+
+      .foot {
+        background-color: rgb(0, 0, 0);
+        color: white;
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
+        height: 550px;
+        position: relative;
+      }
+      .background-footer {
+        height: 200px;
+        position: absolute;
+        left: 43%;
+        top: 55%;
+      }
+      [class^="footer-content-"] {
+        margin: 10px 20px 0px 20px;
+      }
+      .footer-content-1 span {
+        font-size: 30px;
+        background-image: linear-gradient(to right, #99faff, #ff5566);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+      }
+      .footer-content-1 img {
+        height: 22px;
+      }
+      .footer-content-1 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .custom-border {
+        position: relative;
+        height: 1px;
+        background: #444;
+        margin: 10px 20px;
+        width: 193%;
+      }
+
+      .custom-border::before,
+      .custom-border::after {
+        content: "";
+        position: absolute;
+        bottom: -6px;
+        width: 90px;
+        height: 7px;
+        background: #444;
+      }
+
+      .custom-border::before {
+        width: 110px;
+        bottom: 0px;
+        left: 0;
+        clip-path: polygon(0 100%, 80% 100%, 55% 0%, 0% 0%);
+      }
+
+      .custom-border::after {
+        right: 0;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 25% 100%);
+      }
+
+      .contact-icon a i {
+        background-image: linear-gradient(to right, #ff5555, #ff9999);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+      }
+      .contact-icon a:hover i {
+        background-image: linear-gradient(to right, #99faff, #ff5566);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .footer-content-1-2 {
+        display: grid;
+        justify-content: end;
+        align-items: center;
+        padding-right: 10px;
+      }
+      .footer-content-1-2 span {
+        font-size: 20px;
+      }
+      #free {
+        padding: 10px 50px 10px 10px;
+        color: white;
+        font-size: 20px;
+        background-color: #000000;
+        border: 1px solid rgba(255, 255, 255, 0.574);
+        outline: none;
+      }
+
+      .footer-content-1-2 button {
+        padding: 11px 20px 11px 20px;
+        font-size: 20px;
+        border: none;
+        background: #ff0000;
+        color: white;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        font-weight: 500;
+        margin-left: 3px;
+        outline: none;
+      }
+
+      .footer-content-1-2 button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background: #dd0000;
+        transition: width 0.3s ease;
+      }
+
+      .footer-content-1-2 button:hover::before {
+        width: 100%;
+      }
+      .footer-content-1-2 button span {
+        z-index: 10;
+        position: relative;
+      }
+      .contact-icon {
+        display: flex;
+        gap: 15px;
+        margin-top: 10px;
+      }
+      [class^="icon-"] {
+        font-size: 30px;
+      }
+
+      .footer-content-2-2 {
+        margin: 0 20px;
+        border-bottom: 1px solid grey;
+        font-size: 15px;
+        padding-bottom: 10px;
+      }
+      #access {
+        margin-top: 10px;
+      }
+
+      .footer-content-3 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        font-size: 15px;
+      }
+
+      .footer-content-3-1 {
+        margin-left: 0px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .footer-content-3-1 i {
+        font-size: 30px;
+      }
+      .footer-content-3-2 {
+        align-items: center;
+        justify-content: end;
+        display: grid;
+        grid-template-columns: 100px 120px 260px;
+        grid-gap: 15px;
+      }
+
+      [class^="law-"] {
+        border: none;
+        outline: none;
+        background-color: #c9cdbf00;
+        color: white;
+        padding: 10px;
+        font-size: 15px;
+        transition: all 0.5s;
+      }
+      [class^="law-"]:hover {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <div class="menu">
+        <button class="list-menu1"><i class="bx bx-menu"></i></button>
+        <div class="box-menu">
+          <div class="box-menu-head">
+            <button class="list-menu2"><i class="bx bx-menu"></i></button>
+
+            <h1>Diminal</h1>
+          </div>
+          <div class="box-menu-list">
+            <ul class="box-list1">
+              <li class="menu-bt5">
+                <i class="bx bx-home"></i><span>trang chủ</span>
+              </li>
+              <li class="menu-bt1">
+                <i class="bx bx-user"></i> <span>thông tin</span>
+              </li>
+              <li class="menu-bt2">
+                <i class="bx bx-cart-alt"></i><span>giỏ hàng</span>
+              </li>
+              <li class="menu-bt3">
+                <i class="bx bx-log-in"></i><span>đăng nhập</span>
+              </li>
+              <li class="menu-bt4">
+                <i class="bx bx-log-out"></i><span>đăng xuất</span>
+              </li>
+            </ul>
+            <ul class="box-list2">
+              <li class="menu-bt6">
+                <i class="bx bx-cog"></i><span>cài đặt</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <img src="/img/snapedit_1745079844229png" alt="" />
+      <h1>Diminal</h1>
+    </div>
+
+    <div class="profile">
+      <div class="main-profile">
+        <div class="avatar">
+          <div
+            id="preview"
+            style="
+              width: 150px;
+              height: 150px;
+              border: 1px solid #ccc;
+              border-radius: 20px;
+              overflow: hidden;
+              display: flex;
+              justify-content: center;
+            "
+          ></div>
+        </div>
+
+        <label for="upload" class="custom-btn">Chọn ảnh đại diện</label
+        ><input
+          type="file"
+          id="upload"
+          accept="image/*"
+          style="display: none"
+        />
+
+        <div class="bx-1"><p id="username"></p></div>
+        <div class="bx-2"><p id="email"></p></div>
+        <div class="bx-3">
+          <p id="password"></p>
+        </div>
+        <div class="bx-4"><p id="phone"></p></div>
+        <button class="icon-1">
+          <span class="material-icons"> visibility </span>
+        </button>
+        <button class="icon-2">
+          <span class="material-icons"> visibility_off </span>
+        </button>
+      </div>
+    </div>
+
+    <div class="foot">
+      <img
+        src="/img/snapedit_1745117915868.png"
+        alt=""
+        class="background-footer"
+      />
+      <footer>
+        <div class="footer-content-1">
+          <div class="footer-content-1-1">
+            <img src="/img/snapedit_1745079844229png" alt="" />
+            <span>Diminal</span>
+            <div class="contact-icon">
+              <div class="icon-facebook">
+                <a href="https://www.facebook.com/share/15zaQBAyTG/"
+                  ><i class="bx bxl-meta"></i
+                ></a>
+              </div>
+              <div class="icon-youtube">
+                <a href="https://youtube.com/@liem_chua?si=sj6AFTx_89XJdygY"
+                  ><i class="bx bxl-youtube"></i
+                ></a>
+              </div>
+              <div class="icon-gmail">
+                <a href="mailto:pdlp0811@gmail.com"
+                  ><i class="bx bxl-gmail"></i
+                ></a>
+              </div>
+              <div class="icon-tiktok">
+                <a href=""><i class="bx bxl-tiktok"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="footer-content-1-2">
+            <span>nhập email của bạn để nhận các ưu đãi mới nhất </span>
+            <div class="notification">
+              <input
+                type="text"
+                name=""
+                id="free"
+                placeholder="nhập địa chỉ email"
+              />
+              <button><span>Đăng kí</span></button>
+            </div>
+          </div>
+          <div class="custom-border"></div>
+        </div>
+        <div class="footer-content-2">
+          <div class="footer-content-2-2">
+            <p>
+              Công ty TNHH công nghệ Diminal<br />Địa chỉ : Thôn Đại Dồng, xá
+              Cương Gián, huyện Nghi Xuân, tỉnh Hà tĩnh <br />
+              Điện thoại : 0399562763 <br />
+              Email : Pdlp0811@gmail.com <br />
+              Giấy phép kinh doanh hoạt động mua bán hàng hóa và các hoạt động
+              liên quan trực tiếp đến mua bán hàng hóa, số 0304965680/KD-0321,
+              do Sở Công thương TP. Hồ Chí Minh cấp lần đầu ngày 24/01/2019.
+            </p>
+            <img
+              src="https://rog.asus.com/_nuxt/img/vn-logo-footer.9837dce.png"
+              alt=""
+              id="access"
+            />
+          </div>
+          <div class="footer-content-3">
+            <div class="footer-content-3-1">
+              <i class="bx bx-globe"></i><span>Vietnam/Việt Nam</span>
+            </div>
+            <div class="footer-content-3-2">
+              <button class="law-1">Quy chế pháp lý</button>
+              <button class="law-2">Thông tin hợp pháp</button>
+              <span>©DIMINALTeK Computer Inc. All rights reserved.</span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script>
+      const menu1 = document.querySelector(".list-menu1");
+      const box_menu = document.querySelector(".box-menu");
+      const menu2 = document.querySelector(".list-menu2");
+      menu1.addEventListener("click", function (event) {
+        event.preventDefault();
+        console.log("click");
+        box_menu.classList.add("selecter");
+      });
+      menu2.addEventListener("click", function (event) {
+        event.preventDefault();
+        console.log("click");
+        box_menu.classList.remove("selecter");
+      });
+
+      const userData = JSON.parse(localStorage.getItem("user"));
+
+      const hiddenPassword = "•".repeat(userData.password.length);
+      const hiddenemail = "•".repeat(userData.email.length);
+      const hiddenphone = "•".repeat(userData.phone.length);
+      document.getElementById("username").innerHTML =
+        "Username: " + userData.username;
+      document.getElementById("email").innerHTML = "Email: " + hiddenemail;
+      document.getElementById("password").innerHTML =
+        "Password: " + hiddenPassword;
+      document.getElementById("phone").innerHTML = "Phone: " + hiddenphone;
+
+      const vision = document.querySelector(".icon-1");
+      const low_vision = document.querySelector(".icon-2");
+      const appear_vision = document.querySelector(".icon-1");
+      const disappear_vision = document.querySelector(".icon-2");
+
+      vision.addEventListener("click", function event() {
+        console.log("click");
+
+        const security = prompt(
+          "chúng tôi cần xác minh danh tính của bạn, vui lòng nhập mật khẩu!"
+        );
+        if (security && security.trim() == userData.password) {
+          document.getElementById("password").innerHTML =
+            "Password: " + userData.password;
+          document.getElementById("email").innerHTML =
+            "Email: " + userData.email;
+
+          document.getElementById("phone").innerHTML =
+            "Phone: " + userData.phone;
+
+          appear_vision.classList.add("icon1-1");
+          disappear_vision.classList.add("icon2-1");
+        } else {
+          document.getElementById("email").innerHTML = "Email: " + hiddenemail;
+          document.getElementById("password").innerHTML =
+            "Password: " + hiddenPassword;
+          document.getElementById("phone").innerHTML = "Phone: " + hiddenphone;
+
+          appear_vision.classList.remove("icon1-1");
+          disappear_vision.classList.remove("icon2-1");
+          alert("Sai mật khẩu rồi nha, lêu lêu 🤣😜");
+        }
+      });
+
+      low_vision.addEventListener("click", function event() {
+        console.log("click");
+
+        document.getElementById("email").innerHTML = "Email: " + hiddenemail;
+        document.getElementById("password").innerHTML =
+          "Password: " + hiddenPassword;
+        document.getElementById("phone").innerHTML = "Phone: " + hiddenphone;
+
+        appear_vision.classList.remove("icon1-1");
+        disappear_vision.classList.remove("icon2-1");
+      });
+
+      const register_login = document.querySelector(".menu-bt3");
+      register_login.addEventListener("click", function (event) {
+        event.preventDefault();
+        console.log("click");
+        window.location.href = "/html/index.html";
+      });
+
+      const cart = document.querySelector(".menu-bt2");
+      cart.addEventListener("click", function (event) {
+        event.preventDefault();
+        console.log("click");
+        window.location.href = "/html/cart.html";
+      });
+
+      const home = document.querySelector(".menu-bt5");
+      home.addEventListener("click", function (event) {
+        event.preventDefault();
+        console.log("click");
+        window.location.href = "/html/home.html";
+      });
+
+      const profile = document.querySelector(".menu-bt1");
+      profile.addEventListener("click", function (event) {
+        event.preventDefault();
+        console.log("click");
+        window.location.href = "/html/profile.html";
+      });
+
+      const upload = document.getElementById("upload");
+      const preview = document.getElementById("preview");
+
+      const oldImage = localStorage.getItem("savedImage");
+      if (oldImage) {
+        preview.innerHTML = `<img src="${oldImage}" style="max-width:300px">`;
+      }
+
+      upload.addEventListener("change", (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const imgData = e.target.result;
+          preview.innerHTML = `<img src="${imgData}" style="max-width:300px">`;
+
+          localStorage.setItem("savedImage", imgData);
+        };
+        reader.readAsDataURL(file);
+      });
+    </script>
+  </body>
+</html>
