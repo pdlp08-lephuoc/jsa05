@@ -146,3 +146,14 @@ form_lg.addEventListener("submit", function (event) {
     alert("Sai thông tin đăng nhập! Vui lòng nhập lại 😒");
   }
 });
+
+const help_lg = document.querySelector(".help-login");
+help_lg.addEventListener("click", function (event) {
+  event.preventDefault();
+  window.location.href = "/html/home.html";
+});
+const help_rg = document.querySelector(".help-register");
+help_rg.addEventListener("click", function (event) {
+  event.preventDefault();
+  window.location.href = "/html/home.html";
+});

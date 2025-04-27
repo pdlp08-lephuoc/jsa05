@@ -3,102 +3,69 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Lịch Sử Đơn Hàng</title>
     <link rel="stylesheet" href="/css/home.css" />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/all.css" />
-
     <style>
-      .sp {
-        margin: 100px 0px;
-      }
-      .nvidia-rtx {
-        display: grid;
-        grid-template-columns: 580px auto;
-      }
-      .nvidia-rtx video {
-        margin-left: 70px;
-        border-radius: 20px;
-        height: auto;
-      }
-      .nvidia-rtx-1-1 {
-        display: grid;
-        grid-template-rows: 40px 190px 50px;
-        align-items: end;
-      }
-      .nvidia-rtx-1-1 .cart-bt {
-        display: flex;
-        margin-right: 50px;
-        align-items: center;
-      }
-      .nvidia-rtx-1-1 .cart {
-        padding: 10px 55px;
-        border: none;
-        outline: none;
-        border-radius: 10px;
+      .orders-container {
+        margin: 100px 20px;
         color: white;
-        background-color: red;
-        transition: all 0.5s;
       }
-      .nvidia-rtx-1-1 .cart:hover {
-        background-color: rgb(210, 0, 0);
+      .orders-container h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+        background-image: linear-gradient(to right, #99faff, #ff5566);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
-      .counter {
-        display: flex;
-        gap: 5px;
-        align-items: end;
-        max-width: 150px;
-      }
-      .counter-btn {
-        width: 40px;
-        height: 30px;
-        border: none;
-        outline: none;
-        background-color: red;
-        color: white;
-        font-size: 20px;
-        font-weight: bold;
+      .order-list {
+        background-color: rgb(19, 19, 19);
         border-radius: 10px;
-        cursor: pointer;
-        transition: all 0.3s;
+        padding: 20px;
       }
-      .counter-btn:hover {
-        background-color: rgb(210, 0, 0);
-      }
-      .counter-display {
-        width: 60px;
-        height: 30px;
-        text-align: center;
-        font-size: 15px;
-        color: white;
-        background-color: rgb(0, 0, 0);
-        border-radius: 10px;
-        outline: none;
-      }
-      .nvidia-rtx-2 {
-        display: flex;
-        justify-content: center;
-        margin-top: 100px;
-      }
-      .spec-table {
-        width: 100%;
-        max-width: auto;
-        margin: 20px 70px 0 70px;
-        color: white;
-        background-color: rgb(37, 37, 37);
-        border-radius: 10px;
-      }
-      .spec-table td {
+      .order-item {
         padding: 15px;
-        font-size: 18px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.2);
       }
-      .spec-table td:first-child {
-        font-weight: 600;
-        background-color: rgba(255, 255, 255, 0.05);
+      .order-item:last-child {
+        border-bottom: none;
+      }
+      .order-item p {
+        font-size: 18px;
+        margin: 5px 0;
+      }
+      .order-item ul {
+        margin: 10px 0 0 20px;
+        font-size: 16px;
+      }
+      .empty-orders {
+        font-size: 18px;
+        text-align: center;
+        padding: 20px;
+        color: rgba(255, 255, 255, 0.7);
+      }
+      /* Dark mode styles */
+      .body-dark {
+        background-color: rgb(37, 37, 37);
+        color: rgb(255, 255, 255);
+      }
+      .body-dark #header,
+      .body-dark .box-menu {
+        background-color: rgb(50, 50, 50);
+      }
+      .body-dark .box-menu-list li span,
+      .body-dark .box-menu-list i,
+      .body-dark .footer-content-3-2 span,
+      .body-dark [class^="law-"] {
+        color: rgb(255, 255, 255);
+      }
+      .body-dark .custom-border,
+      .body-dark .footer-content-2-2 {
+        border-color: rgb(100, 100, 100);
       }
     </style>
   </head>
@@ -160,75 +127,10 @@
       <img src="/img/snapedit_1745079844229png" alt="" />
       <h1>Diminal</h1>
     </div>
-    <div class="sp">
-      <div class="nvidia">
-        <div class="nvidia-rtx">
-          <video
-            autoplay
-            muted
-            id="myVideo"
-            src="/video/2025-04-05 22-27-47 (online-video-cutter.com).mp4"
-            width="500"
-            height="300"
-            controls
-          ></video>
-          <div class="nvidia-rtx-1-1">
-            <div class="title">
-              <h1>MSI GeForce RTX 5090 32G VANGUARD OC</h1>
-            </div>
-            <div class="counter">
-              <button class="counter-btn decrease">-</button>
-              <input type="text" class="counter-display" value="1" readonly />
-              <button class="counter-btn increase">+</button>
-            </div>
-            <div class="cart-bt">
-              <button class="cart">Đặt hàng</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="nvidia">
-        <div class="nvidia-rtx-2">
-          <table class="spec-table">
-            <tr>
-              <td>Bộ xử lý đồ họa</td>
-              <td>NVIDIA® GeForce RTX™ 5090</td>
-            </tr>
-            <tr>
-              <td>Kiến trúc</td>
-              <td>Blackwell</td>
-            </tr>
-            <tr>
-              <td>Bộ nhớ</td>
-              <td>32GB GDDR7</td>
-            </tr>
-            <tr>
-              <td>Tốc độ bộ nhớ</td>
-              <td>28 Gbps</td>
-            </tr>
-            <tr>
-              <td>Nhân Ray Tracing</td>
-              <td>Thế hệ thứ 4</td>
-            </tr>
-            <tr>
-              <td>Nhân Tensor</td>
-              <td>Thế hệ thứ 5</td>
-            </tr>
-            <tr>
-              <td>Xung nhịp tăng tốc</td>
-              <td>Lên đến 2.527 GHz (MSI Center, OC Mode)</td>
-            </tr>
-            <tr>
-              <td>Công suất tiêu thụ</td>
-              <td>575W</td>
-            </tr>
-            <tr>
-              <td>Cổng kết nối hiển thị</td>
-              <td>3x DisplayPort 2.1b, 1x HDMI 2.1b</td>
-            </tr>
-          </table>
-        </div>
-      </div>
+
+    <div class="orders-container">
+      <h2>Lịch Sử Đơn Hàng</h2>
+      <div class="order-list" id="orderList"></div>
     </div>
 
     <div class="foot">
@@ -280,13 +182,13 @@
         <div class="footer-content-2">
           <div class="footer-content-2-2">
             <p>
-              Công ty TNHH công nghệ Diminal<br />Địa chỉ : Thôn Đại Dồng, xá
-              Cương Gián, huyện Nghi Xuân, tỉnh Hà tĩnh <br />
-              Điện thoại : 0399562763 <br />
-              Email : Pdlp0811@gmail.com <br />
-              Giấy phép kinh doanh hoạt động mua bán hàng hóa và các hoạt động
-              liên quan trực tiếp đến mua bán hàng hóa, số 0304965680/KD-0321,
-              do Sở Công thương TP. Hồ Chí Minh cấp lần đầu ngày 24/01/2019.
+              Công ty TNHH công nghệ Diminal<br />
+              Địa chỉ: Thôn Đại Dồng, xá Cương Gián, huyện Nghi Xuân, tỉnh Hà
+              Tĩnh<br />
+              Điện thoại: 0399562763<br />
+              Email: Pdlp0811@gmail.com<br />
+              Giấy phép kinh doanh: 0304965680/KD-0321, Sở Công thương TP. Hồ
+              Chí Minh, cấp ngày 24/01/2019.
             </p>
             <img
               src="https://rog.asus.com/_nuxt/img/vn-logo-footer.9837dce.png"
@@ -307,136 +209,124 @@
         </div>
       </footer>
     </div>
+
     <script>
+      // Menu navigation
       const menu1 = document.querySelector(".list-menu1");
       const box_menu = document.querySelector(".box-menu");
       const menu2 = document.querySelector(".list-menu2");
+
       menu1.addEventListener("click", function (event) {
         event.preventDefault();
-        console.log("click");
         box_menu.classList.add("selecter");
       });
+
       menu2.addEventListener("click", function (event) {
         event.preventDefault();
-        console.log("click");
         box_menu.classList.remove("selecter");
       });
 
       const register_login = document.querySelector(".menu-bt3");
       register_login.addEventListener("click", function (event) {
         event.preventDefault();
-        console.log("click");
         window.location.href = "/html/index.html";
       });
 
       const cart = document.querySelector(".menu-bt2");
       cart.addEventListener("click", function (event) {
         event.preventDefault();
-        console.log("click");
         window.location.href = "/html/cart.html";
       });
 
       const home = document.querySelector(".menu-bt5");
       home.addEventListener("click", function (event) {
         event.preventDefault();
-        console.log("click");
         window.location.href = "/html/home.html";
       });
 
       const profile = document.querySelector(".menu-bt1");
       profile.addEventListener("click", function (event) {
         event.preventDefault();
-        console.log("click");
         window.location.href = "/html/profile.html";
       });
+
+      const orders = document.querySelector(".menu-bt7");
+      orders.addEventListener("click", function (event) {
+        event.preventDefault();
+        window.location.href = "/html/orders.html";
+      });
+
       const law1 = document.querySelector(".law-1");
       law1.addEventListener("click", function (event) {
         event.preventDefault();
         window.location.href = "/html/law1.html";
       });
+
       const law2 = document.querySelector(".law-2");
       law2.addEventListener("click", function (event) {
         event.preventDefault();
         window.location.href = "/html/law2.html";
       });
 
+      // Email subscription
       const free = document.querySelector("#free");
       const endown = document.querySelector(".endown");
 
       function checkemailendown(input) {
         input.value = input.value.trim();
         const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
         if (input.value.length === 0) {
           alert("Vui lòng nhập email!");
           return false;
-        } else {
         }
         if (!regexEmail.test(input.value)) {
           alert("Email không hợp lệ!");
           return false;
         }
-
         alert("Từ giờ các ưu đãi sẽ được gửi qua email của bạn!");
         return true;
       }
 
       endown.addEventListener("click", function (event) {
         event.preventDefault();
-        console.log("click");
         checkemailendown(free);
       });
 
-      const decreaseBtn = document.querySelector(".counter-btn.decrease");
-      const increaseBtn = document.querySelector(".counter-btn.increase");
-      const counterDisplay = document.querySelector(".counter-display");
-      const cartBtn = document.querySelector(".cart");
+      // Display orders
+      function displayOrders() {
+        const orderList = document.getElementById("orderList");
+        const orders = JSON.parse(localStorage.getItem("orders")) || [];
 
-      let count = 1;
-
-      decreaseBtn.addEventListener("click", function (event) {
-        event.preventDefault();
-        if (count > 1) {
-          count--;
-          counterDisplay.value = count;
-        }
-      });
-
-      increaseBtn.addEventListener("click", function (event) {
-        event.preventDefault();
-        count++;
-        counterDisplay.value = count;
-      });
-
-      //////
-      cartBtn.addEventListener("click", function (event) {
-        event.preventDefault();
-        const productName = document.querySelector(
-          ".nvidia-rtx-1-1 .title h1"
-        ).innerText;
-        const quantity = parseInt(counterDisplay.value);
-
-        // Lấy giỏ hàng từ localStorage hoặc tạo mới nếu chưa có
-        let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-
-        // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
-        const existingItemIndex = cartItems.findIndex(
-          (item) => item.name === productName
-        );
-        if (existingItemIndex >= 0) {
-          // Nếu đã có, cập nhật số lượng
-          cartItems[existingItemIndex].quantity += quantity;
-        } else {
-          // Nếu chưa có, thêm sản phẩm mới
-          cartItems.push({ name: productName, quantity: quantity });
+        if (orders.length === 0) {
+          orderList.innerHTML =
+            '<div class="empty-orders">Chưa có đơn hàng nào</div>';
+          return;
         }
 
-        // Lưu giỏ hàng vào localStorage
-        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        orderList.innerHTML = "";
+        orders.forEach((order, index) => {
+          const orderItem = document.createElement("div");
+          orderItem.className = "order-item";
+          orderItem.innerHTML = `
+            <p><strong>Đơn hàng #${index + 1}</strong></p>
+            <p>Khách hàng: ${order.customerName}</p>
+            <p>Địa chỉ: ${order.customerAddress}</p>
+            <p>Thời gian: ${order.orderDate}</p>
+            <p>Sản phẩm:</p>
+            <ul>
+              ${order.items
+                .map(
+                  (item) => `<li>${item.name} - Số lượng: ${item.quantity}</li>`
+                )
+                .join("")}
+            </ul>
+          `;
+          orderList.appendChild(orderItem);
+        });
+      }
 
-        // Chuyển hướng đến trang giỏ hàng
-        window.location.href = "/html/cart.html";
-      });
+      // Initialize order display
+      document.addEventListener("DOMContentLoaded", displayOrders);
     </script>
     <script src="/js/all.js"></script>
   </body>

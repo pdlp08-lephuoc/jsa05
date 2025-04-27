@@ -1,0 +1,124 @@
+.light-dark {
+  position: absolute;
+  left: 250px;
+  top: -58px;
+  background-color: rgb(196, 196, 196);
+  width: 150px;
+  height: 111%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  z-index: -9;
+  transform: translate(-300%, 0%);
+  transition: all 0.8s;
+}
+.ld {
+  transform: translate(0%, 0%);
+  border-left: 1px solid rgb(255, 255, 255);
+}
+.lt-dk {
+  margin-top: 5px;
+  display: grid;
+  grid-gap: 10px;
+  z-index: -9;
+}
+.light,
+.dark {
+  font-size: 30px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  width: 145px;
+  margin: 0px 10px;
+  background-color: rgb(196, 196, 196);
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -9;
+  transition: all 0.4s;
+}
+.light,
+.light i {
+  color: #dd0000;
+}
+.light1,
+.light1 i {
+  color: rgb(0, 0, 0);
+}
+.dark,
+.dark i {
+  color: rgb(0, 0, 0);
+}
+.dark1,
+.dark1 i {
+  color: #dd0000;
+}
+.light span,
+.dark span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.light i,
+.dark i {
+  font-size: 30px;
+}
+
+.light:hover,
+.dark:hover {
+  background-color: rgba(255, 255, 255, 0.678);
+}
+
+/*  */
+
+.body-dark #header,
+.body-dark .foot {
+  background-color: #000000;
+}
+.body-dark .buy-now [class^="information-"] {
+  background-color: #303030;
+  color: white;
+}
+.body-dark .concept {
+  box-shadow: 0px 0px 10px black;
+  background-color: rgb(24, 24, 24);
+}
+.body-dark,
+.body-dark .box-menu,
+.body-dark .light-dark {
+  background-color: rgb(28, 28, 28); /* Darken header, menu, buttons */
+  color: white;
+}
+
+.body-dark .box-menu-list li span,
+.body-dark .box-menu-list i,
+.body-dark .footer-content-3-2 span,
+.body-dark .light1,
+.body-dark .light1 i,
+.body-dark .dark,
+.body-dark .menu i {
+  color: rgb(255, 255, 255);
+}
+.body-dark .dark1,
+.body-dark .dark1 i {
+  color: #dd0000;
+}
+.body-dark .foot,
+.body-dark .foot [class^="law-"] {
+  color: #ffffff;
+}
+.body-dark .custom-border {
+  border-color: rgb(100, 100, 100); /* Adjust border colors for dark mode */
+}
+.body-dark .light-dark {
+  box-shadow: 5px 0px 10px rgb(0, 0, 0);
+}
+.body-dark .light,
+.body-dark .dark {
+  background-color: rgb(28, 28, 28);
+}
+.body-dark .dark1:hover,
+.body-dark .light1:hover {
+  background-color: rgba(255, 255, 255, 0.678);
+}

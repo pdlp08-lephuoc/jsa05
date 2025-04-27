@@ -9,6 +9,8 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="/css/all.css" />
+
     <style>
       .sp {
         margin: 100px 0px;
@@ -115,10 +117,13 @@
                 <i class="bx bx-home"></i><span>trang chủ</span>
               </li>
               <li class="menu-bt1">
-                <i class="bx bx-user"></i> <span>thông tin</span>
+                <i class="bx bx-user"></i><span>thông tin</span>
               </li>
               <li class="menu-bt2">
                 <i class="bx bx-cart-alt"></i><span>giỏ hàng</span>
+              </li>
+              <li class="menu-bt7">
+                <i class="bx bx-receipt"></i><span>đơn hàng</span>
               </li>
               <li class="menu-bt3">
                 <i class="bx bx-log-in"></i><span>đăng nhập</span>
@@ -129,7 +134,24 @@
             </ul>
             <ul class="box-list2">
               <li class="menu-bt6">
-                <i class="bx bx-cog"></i><span>cài đặt</span>
+                <i class="bx bx-cog"></i
+                ><span
+                  >cài đặt
+                  <div class="light-dark">
+                    <div class="lt-dk">
+                      <div class="lt1">
+                        <button class="light">
+                          sáng <i class="bx bx-sun"></i>
+                        </button>
+                      </div>
+                      <div class="dk1">
+                        <button class="dark">
+                          tối <i class="bx bx-moon"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </span>
               </li>
             </ul>
           </div>
@@ -138,7 +160,6 @@
       <img src="/img/snapedit_1745079844229png" alt="" />
       <h1>Diminal</h1>
     </div>
-
     <div class="sp">
       <div class="nvidia">
         <div class="nvidia-rtx">
@@ -146,14 +167,14 @@
             autoplay
             muted
             id="myVideo"
-            src="/video/2025-04-05 22-20-08 (online-video-cutter.com).mp4"
+            src="/video/2025-04-05 22-22-53 (online-video-cutter.com).mp4"
             width="500"
             height="300"
             controls
           ></video>
           <div class="nvidia-rtx-1-1">
             <div class="title">
-              <h1>GeForce RTX™ 5080 16G VANGUARD SOC LAUNCH EDITION</h1>
+              <h1>GeForce RTX™ 5070 Ti 16G GAMING TRIO OC PLUS</h1>
             </div>
             <div class="counter">
               <button class="counter-btn decrease">-</button>
@@ -171,7 +192,7 @@
           <table class="spec-table">
             <tr>
               <td>Bộ xử lý đồ họa</td>
-              <td>NVIDIA® GeForce RTX™ 5080</td>
+              <td>NVIDIA® GeForce RTX™ 5070 Ti</td>
             </tr>
             <tr>
               <td>Kiến trúc</td>
@@ -183,39 +204,39 @@
             </tr>
             <tr>
               <td>Tốc độ bộ nhớ</td>
-              <td>30 Gbps</td>
+              <td>28 Gbps</td>
             </tr>
             <tr>
               <td>Băng thông bộ nhớ</td>
-              <td>~960 GB/s (256-bit)</td>
+              <td>896 GB/s (256-bit)</td>
             </tr>
             <tr>
               <td>Nhân CUDA</td>
-              <td>10,752</td>
+              <td>8,960</td>
             </tr>
             <tr>
               <td>Nhân Ray Tracing</td>
-              <td>Thế hệ thứ 4</td>
+              <td>Thế hệ thứ 4 (70 RT Cores)</td>
             </tr>
             <tr>
               <td>Nhân Tensor</td>
-              <td>Thế hệ thứ 5</td>
+              <td>Thế hệ thứ 5 (280 Tensor Cores)</td>
             </tr>
             <tr>
               <td>Xung nhịp tăng tốc</td>
-              <td>~2.670 MHz (OC Mode)</td>
+              <td>2,580 MHz (OC Mode)</td>
             </tr>
             <tr>
               <td>Công suất tiêu thụ (TDP)</td>
-              <td>360W</td>
+              <td>300W</td>
             </tr>
             <tr>
               <td>Cổng kết nối hiển thị</td>
-              <td>3x DisplayPort 2.1a, 1x HDMI 2.1b</td>
+              <td>3x DisplayPort 2.1b, 1x HDMI 2.1b</td>
             </tr>
             <tr>
               <td>Giao tiếp PCIe</td>
-              <td>PCIe Gen 5</td>
+              <td>PCIe Gen 5 x16</td>
             </tr>
           </table>
         </div>
@@ -263,7 +284,7 @@
                 id="free"
                 placeholder="nhập địa chỉ email"
               />
-              <button><span>Đăng kí</span></button>
+              <button class="endown"><span>Đăng kí</span></button>
             </div>
           </div>
           <div class="custom-border"></div>
@@ -340,6 +361,43 @@
         console.log("click");
         window.location.href = "/html/profile.html";
       });
+      const law1 = document.querySelector(".law-1");
+      law1.addEventListener("click", function (event) {
+        event.preventDefault();
+        window.location.href = "/html/law1.html";
+      });
+      const law2 = document.querySelector(".law-2");
+      law2.addEventListener("click", function (event) {
+        event.preventDefault();
+        window.location.href = "/html/law2.html";
+      });
+
+      const free = document.querySelector("#free");
+      const endown = document.querySelector(".endown");
+
+      function checkemailendown(input) {
+        input.value = input.value.trim();
+        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (input.value.length === 0) {
+          alert("Vui lòng nhập email!");
+          return false;
+        } else {
+        }
+        if (!regexEmail.test(input.value)) {
+          alert("Email không hợp lệ!");
+          return false;
+        }
+
+        alert("Từ giờ các ưu đãi sẽ được gửi qua email của bạn!");
+        return true;
+      }
+
+      endown.addEventListener("click", function (event) {
+        event.preventDefault();
+        console.log("click");
+        checkemailendown(free);
+      });
 
       const decreaseBtn = document.querySelector(".counter-btn.decrease");
       const increaseBtn = document.querySelector(".counter-btn.increase");
@@ -392,5 +450,6 @@
         window.location.href = "/html/cart.html";
       });
     </script>
+    <script src="/js/all.js"></script>
   </body>
 </html>

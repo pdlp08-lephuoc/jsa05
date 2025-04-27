@@ -12,6 +12,7 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="/css/home.css" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Smooch+Sans:wght@100..900&display=swap");
       * {
@@ -412,7 +413,6 @@
         <div class="box-menu">
           <div class="box-menu-head">
             <button class="list-menu2"><i class="bx bx-menu"></i></button>
-
             <h1>Diminal</h1>
           </div>
           <div class="box-menu-list">
@@ -421,10 +421,13 @@
                 <i class="bx bx-home"></i><span>trang chủ</span>
               </li>
               <li class="menu-bt1">
-                <i class="bx bx-user"></i> <span>thông tin</span>
+                <i class="bx bx-user"></i><span>thông tin</span>
               </li>
               <li class="menu-bt2">
                 <i class="bx bx-cart-alt"></i><span>giỏ hàng</span>
+              </li>
+              <li class="menu-bt7">
+                <i class="bx bx-receipt"></i><span>đơn hàng</span>
               </li>
               <li class="menu-bt3">
                 <i class="bx bx-log-in"></i><span>đăng nhập</span>
@@ -435,7 +438,24 @@
             </ul>
             <ul class="box-list2">
               <li class="menu-bt6">
-                <i class="bx bx-cog"></i><span>cài đặt</span>
+                <i class="bx bx-cog"></i
+                ><span
+                  >cài đặt
+                  <div class="light-dark">
+                    <div class="lt-dk">
+                      <div class="lt1">
+                        <button class="light">
+                          sáng <i class="bx bx-sun"></i>
+                        </button>
+                      </div>
+                      <div class="dk1">
+                        <button class="dark">
+                          tối <i class="bx bx-moon"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </span>
               </li>
             </ul>
           </div>
@@ -444,7 +464,6 @@
       <img src="/img/snapedit_1745079844229png" alt="" />
       <h1>Diminal</h1>
     </div>
-
     <div class="profile">
       <div class="main-profile">
         <div class="avatar">
@@ -526,7 +545,7 @@
                 id="free"
                 placeholder="nhập địa chỉ email"
               />
-              <button><span>Đăng kí</span></button>
+              <button class="endown"><span>Đăng kí</span></button>
             </div>
           </div>
           <div class="custom-border"></div>
@@ -661,6 +680,43 @@
         console.log("click");
         window.location.href = "/html/profile.html";
       });
+      const law1 = document.querySelector(".law-1");
+      law1.addEventListener("click", function (event) {
+        event.preventDefault();
+        window.location.href = "/html/law1.html";
+      });
+      const law2 = document.querySelector(".law-2");
+      law2.addEventListener("click", function (event) {
+        event.preventDefault();
+        window.location.href = "/html/law2.html";
+      });
+
+      const free = document.querySelector("#free");
+      const endown = document.querySelector(".endown");
+
+      function checkemailendown(input) {
+        input.value = input.value.trim();
+        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (input.value.length === 0) {
+          alert("Vui lòng nhập email!");
+          return false;
+        } else {
+        }
+        if (!regexEmail.test(input.value)) {
+          alert("Email không hợp lệ!");
+          return false;
+        }
+
+        alert("Từ giờ các ưu đãi sẽ được gửi qua email của bạn!");
+        return true;
+      }
+
+      endown.addEventListener("click", function (event) {
+        event.preventDefault();
+        console.log("click");
+        checkemailendown(free);
+      });
 
       const upload = document.getElementById("upload");
       const preview = document.getElementById("preview");
@@ -684,5 +740,6 @@
         reader.readAsDataURL(file);
       });
     </script>
+    <script src="/js/all.js"></script>
   </body>
 </html>

@@ -9,6 +9,8 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="/css/all.css" />
+
     <style>
       .cart-container {
         margin: 100px 20px;
@@ -22,7 +24,7 @@
         -webkit-text-fill-color: transparent;
       }
       .cart-list {
-        background-color: rgb(37, 37, 37);
+        background-color: rgb(24, 24, 24);
         border-radius: 10px;
         padding: 20px;
       }
@@ -48,7 +50,8 @@
         padding: 20px;
         color: rgba(255, 255, 255, 0.7);
       }
-      .clear-cart {
+      .clear-cart,
+      .depose {
         margin-top: 20px;
         padding: 10px 20px;
         border: none;
@@ -58,9 +61,32 @@
         background-color: red;
         cursor: pointer;
         transition: all 0.3s;
+        width: 100px;
       }
-      .clear-cart:hover {
+      .clear-cart:hover,
+      .depose:hover {
         background-color: rgb(210, 0, 0);
+      }
+      /* Dark mode styles */
+      .body-dark {
+        background-color: rgb(37, 37, 37);
+        color: rgb(255, 255, 255);
+      }
+      .body-dark #header,
+      .body-dark .box-menu,
+      .body-dark .clear-cart,
+      .body-dark .depose {
+        background-color: rgb(50, 50, 50);
+      }
+      .body-dark .box-menu-list li span,
+      .body-dark .box-menu-list i,
+      .body-dark .footer-content-3-2 span,
+      .body-dark [class^="law-"] {
+        color: rgb(255, 255, 255);
+      }
+      .body-dark .custom-border,
+      .body-dark .footer-content-2-2 {
+        border-color: rgb(100, 100, 100);
       }
     </style>
   </head>
@@ -79,10 +105,13 @@
                 <i class="bx bx-home"></i><span>trang chủ</span>
               </li>
               <li class="menu-bt1">
-                <i class="bx bx-user"></i> <span>thông tin</span>
+                <i class="bx bx-user"></i><span>thông tin</span>
               </li>
               <li class="menu-bt2">
                 <i class="bx bx-cart-alt"></i><span>giỏ hàng</span>
+              </li>
+              <li class="menu-bt7">
+                <i class="bx bx-receipt"></i><span>đơn hàng</span>
               </li>
               <li class="menu-bt3">
                 <i class="bx bx-log-in"></i><span>đăng nhập</span>
@@ -93,7 +122,24 @@
             </ul>
             <ul class="box-list2">
               <li class="menu-bt6">
-                <i class="bx bx-cog"></i><span>cài đặt</span>
+                <i class="bx bx-cog"></i
+                ><span
+                  >cài đặt
+                  <div class="light-dark">
+                    <div class="lt-dk">
+                      <div class="lt1">
+                        <button class="light">
+                          sáng <i class="bx bx-sun"></i>
+                        </button>
+                      </div>
+                      <div class="dk1">
+                        <button class="dark">
+                          tối <i class="bx bx-moon"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </span>
               </li>
             </ul>
           </div>
@@ -102,13 +148,12 @@
       <img src="/img/snapedit_1745079844229png" alt="" />
       <h1>Diminal</h1>
     </div>
-
     <div class="cart-container">
       <h2>Giỏ Hàng</h2>
       <div class="cart-list" id="cartList"></div>
       <button class="clear-cart" onclick="clearCart()">Xóa Giỏ Hàng</button>
+      <button class="depose" onclick="commission()">Đặt Hàng</button>
     </div>
-
     <div class="foot">
       <img
         src="/img/snapedit_1745117915868.png"
@@ -150,7 +195,7 @@
                 id="free"
                 placeholder="nhập địa chỉ email"
               />
-              <button><span>Đăng kí</span></button>
+              <button class="endown"><span>Đăng kí</span></button>
             </div>
           </div>
           <div class="custom-border"></div>
@@ -158,13 +203,13 @@
         <div class="footer-content-2">
           <div class="footer-content-2-2">
             <p>
-              Công ty TNHH công nghệ Diminal<br />Địa chỉ : Thôn Đại Dồng, xá
-              Cương Gián, huyện Nghi Xuân, tỉnh Hà tĩnh <br />
-              Điện thoại : 0399562763 <br />
-              Email : Pdlp0811@gmail.com <br />
-              Giấy phép kinh doanh hoạt động mua bán hàng hóa và các hoạt động
-              liên quan trực tiếp đến mua bán hàng hóa, số 0304965680/KD-0321,
-              do Sở Công thương TP. Hồ Chí Minh cấp lần đầu ngày 24/01/2019.
+              Công ty TNHH công nghệ Diminal<br />
+              Địa chỉ: Thôn Đại Dồng, xá Cương Gián, huyện Nghi Xuân, tỉnh Hà
+              Tĩnh<br />
+              Điện thoại: 0399562763<br />
+              Email: Pdlp0811@gmail.com<br />
+              Giấy phép kinh doanh: 0304965680/KD-0321, Sở Công thương TP. Hồ
+              Chí Minh, cấp ngày 24/01/2019.
             </p>
             <img
               src="https://rog.asus.com/_nuxt/img/vn-logo-footer.9837dce.png"
@@ -189,46 +234,82 @@
       const menu1 = document.querySelector(".list-menu1");
       const box_menu = document.querySelector(".box-menu");
       const menu2 = document.querySelector(".list-menu2");
+
       menu1.addEventListener("click", function (event) {
         event.preventDefault();
-        console.log("click");
         box_menu.classList.add("selecter");
       });
+
       menu2.addEventListener("click", function (event) {
         event.preventDefault();
-        console.log("click");
         box_menu.classList.remove("selecter");
       });
 
       const register_login = document.querySelector(".menu-bt3");
       register_login.addEventListener("click", function (event) {
         event.preventDefault();
-        console.log("click");
         window.location.href = "/html/index.html";
       });
 
       const cart = document.querySelector(".menu-bt2");
       cart.addEventListener("click", function (event) {
         event.preventDefault();
-        console.log("click");
         window.location.href = "/html/cart.html";
       });
 
       const home = document.querySelector(".menu-bt5");
       home.addEventListener("click", function (event) {
         event.preventDefault();
-        console.log("click");
         window.location.href = "/html/home.html";
       });
 
       const profile = document.querySelector(".menu-bt1");
       profile.addEventListener("click", function (event) {
         event.preventDefault();
-        console.log("click");
         window.location.href = "/html/profile.html";
       });
 
-      // Hiển thị giỏ hàng
+      const orders = document.querySelector(".menu-bt7");
+      orders.addEventListener("click", function (event) {
+        event.preventDefault();
+        window.location.href = "/html/orders.html";
+      });
+
+      const law1 = document.querySelector(".law-1");
+      law1.addEventListener("click", function (event) {
+        event.preventDefault();
+        window.location.href = "/html/law1.html";
+      });
+
+      const law2 = document.querySelector(".law-2");
+      law2.addEventListener("click", function (event) {
+        event.preventDefault();
+        window.location.href = "/html/law2.html";
+      });
+
+      const free = document.querySelector("#free");
+      const endown = document.querySelector(".endown");
+
+      function checkemailendown(input) {
+        input.value = input.value.trim();
+        const regexEmail = /^[^\s or @]+@[^\s@]+\.[^\s@]+$/;
+        if (input.value.length === 0) {
+          alert("Vui lòng nhập email!");
+          return false;
+        }
+        if (!regexEmail.test(input.value)) {
+          alert("Email không hợp lệ!");
+          return false;
+        }
+        alert("Từ giờ các ưu đãi sẽ được gửi qua email của bạn!");
+        return true;
+      }
+
+      endown.addEventListener("click", function (event) {
+        event.preventDefault();
+        checkemailendown(free);
+      });
+
       function displayCart() {
         const cartList = document.getElementById("cartList");
         const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
@@ -250,14 +331,69 @@
         });
       }
 
-      // Xóa giỏ hàng
       function clearCart() {
         localStorage.removeItem("cartItems");
         displayCart();
+        alert("Giỏ hàng đã được xóa!");
       }
 
-      // Gọi hàm hiển thị giỏ hàng khi trang tải
+      const userData = JSON.parse(localStorage.getItem("user")) || {
+        password: null,
+      };
+
+      function commission() {
+        if (!userData.password) {
+          alert("Vui lòng đăng nhập trước khi đặt hàng!");
+          window.location.href = "/html/index.html";
+          return;
+        }
+
+        const security = prompt(
+          "Chúng tôi cần xác minh danh tính của bạn, vui lòng nhập mật khẩu!"
+        );
+        if (security && security.trim() === userData.password) {
+          const customerName = prompt("Vui lòng nhập tên của bạn:");
+          const customerAddress = prompt("Vui lòng nhập địa chỉ giao hàng:");
+
+          if (customerName && customerAddress) {
+            const cartItems =
+              JSON.parse(localStorage.getItem("cartItems")) || [];
+            if (cartItems.length === 0) {
+              alert(
+                "Giỏ hàng trống, vui lòng thêm sản phẩm trước khi đặt hàng!"
+              );
+              return;
+            }
+
+            let orders = JSON.parse(localStorage.getItem("orders")) || [];
+            const newOrder = {
+              customerName: customerName,
+              customerAddress: customerAddress,
+              items: cartItems,
+              orderDate: new Date().toLocaleString(),
+            };
+            orders.push(newOrder);
+            localStorage.setItem("orders", JSON.stringify(orders));
+
+            localStorage.removeItem("cartItems");
+            displayCart();
+
+            alert(
+              `Đơn hàng của ${customerName} tại địa chỉ ${customerAddress} đang trong quá trình kiểm tra và vận chuyển!`
+            );
+            alert(
+              "Lưu ý: Do đơn hàng có hạn, quá trình vận chuyển có thể chậm trễ từ 3-5 ngày so với dự kiến!"
+            );
+          } else {
+            alert("Vui lòng nhập đầy đủ tên và địa chỉ!");
+          }
+        } else {
+          alert("Sai mật khẩu rồi nha, lêu lêu 🤣😜");
+        }
+      }
+
       document.addEventListener("DOMContentLoaded", displayCart);
     </script>
+    <script src="/js/all.js"></script>
   </body>
 </html>

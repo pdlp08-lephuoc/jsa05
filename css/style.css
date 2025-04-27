@@ -3,7 +3,6 @@
   font-family: "Barlow Condensed", sans-serif;
 }
 
-
 body {
   background: linear-gradient(150deg, rgb(254, 84, 243), rgb(78, 87, 255));
   height: 100vh;
@@ -23,6 +22,7 @@ body {
   margin-top: 10px;
   transition: all 0.7s;
   position: relative;
+  width: 300px;
 }
 
 .box {
